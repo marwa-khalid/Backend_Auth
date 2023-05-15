@@ -6,7 +6,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 class BrandManager(models.Model):
     class Meta:
         app_label = 'backend'
-    email = models.EmailField(unique=True)
+        
+    email = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=128)
     picture = models.ImageField(upload_to='brand_manager_pictures')
 
@@ -32,7 +33,7 @@ class PRManagerManager(BaseUserManager):
 class PRManager(AbstractBaseUser):
     class Meta:
         app_label = 'backend'
-    email = models.EmailField(unique=True)
+    email = models.CharField(max_length=255, unique=True)
     image = models.ImageField(upload_to='profile_pics/', default='default.jpg')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
