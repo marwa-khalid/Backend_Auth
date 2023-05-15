@@ -78,12 +78,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vlljqktf',
         'USER': 'vlljqktf',
-        'PASSWORD': '9cNl1K1BPFVn-qbz1aXjq3ZUAxhjsv2',
+        'PASSWORD': '9cNl1K1BPFVn-qbz1aXjq3ZUAxhjsv2-',
         'HOST': 'drona.db.elephantsql.com',
         'PORT': '5432',
     }
 }
-
 
 
 # Password validation
