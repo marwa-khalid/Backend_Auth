@@ -1,8 +1,11 @@
 from django.db import models
 
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+
 class BrandManager(models.Model):
-     class Meta:
-         app_label = 'backend'
+    class Meta:
+        app_label = 'backend'
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
     picture = models.ImageField(upload_to='brand_manager_pictures')
@@ -10,11 +13,10 @@ class BrandManager(models.Model):
     def __str__(self):
         return self.email
 
-from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
 class PRManagerManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
+        class Meta:
+            app_label = 'backend'
         if not email:
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
@@ -28,6 +30,8 @@ class PRManagerManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class PRManager(AbstractBaseUser):
+    class Meta:
+        app_label = 'backend'
     email = models.EmailField(unique=True)
     image = models.ImageField(upload_to='profile_pics/', default='default.jpg')
     is_active = models.BooleanField(default=True)

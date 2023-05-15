@@ -1,16 +1,14 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import BrandManager
+from .models import PRManager
 
 class BrandManagerRegistrationForm(UserCreationForm):
-    email = forms.EmailField()
-
+    email = forms.EmailField(unique=True)
+    
     class Meta:
         model = BrandManager
         fields = ['email', 'password1', 'password2', 'picture']
-
-from django import forms
-from .models import PRManager
 
 class PRManagerRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
