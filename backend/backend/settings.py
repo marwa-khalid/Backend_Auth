@@ -126,3 +126,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+firebaseConfig = [
+      apiKey: "AIzaSyC443A8554clLX5wectMMjx4soGeBpBAmg",
+  authDomain: "pulse-447a7.firebaseapp.com",
+  projectId: "pulse-447a7",
+  storageBucket: "pulse-447a7.appspot.com",
+  messagingSenderId: "741753765794",
+  appId: "1:741753765794:web:8e86c24078b267880cbcfb",
+  measurementId: "G-XXRWXJGZRN"
+]
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
