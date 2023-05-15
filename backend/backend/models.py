@@ -1,6 +1,8 @@
 from django.db import models
 
 class BrandManager(models.Model):
+     class Meta:
+         app_label = 'backend'
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
     picture = models.ImageField(upload_to='brand_manager_pictures')

@@ -1,6 +1,4 @@
 from django.urls import path
-from .views import register
-from .views import pr_login
 from .views import brandmanager_login
 from .views import brandmanager_register
 from .views import pragency_login
